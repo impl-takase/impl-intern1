@@ -1,0 +1,53 @@
+@startuml
+left to right direction
+
+actor "社員" as fc
+actor "管理者" as ad
+rectangle 備品管理システム {
+  package ログイン機能 {
+    
+    usecase "ログイン" as UC1
+    usecase "ログアウト" as UC2
+  }
+  package 在庫管理機能 {
+  usecase "在庫を確認する" as UC3
+  usecase "在庫を登録する" as UC4
+  usecase "在庫を削除する" as UC5
+  usecase "在庫を変更する" as UC6
+  usecase "発注情報を確認する" as UC7
+  usecase "発注情報を追加する" as UC8
+  usecase "発注情報を削除する" as UC9
+  usecase "発注情報を変更する" as UC10
+  usecase "発注から在庫へ追加する" as UC11
+  usecase "発注を保留にする" as UC12
+  }
+  package 管理者機能 {
+    usecase "ユーザーを招待する" as admin
+  }
+}
+
+
+admin --- ad 
+UC1 --- ad
+UC2 --- ad
+UC3 --- ad
+UC4 --- ad
+UC5 --- ad
+UC6 --- ad
+UC7 --- ad
+UC8 --- ad
+UC9 --- ad
+UC10 --- ad
+fc --- UC1
+fc --- UC2
+fc --- UC3
+fc --- UC4
+fc --- UC5
+fc --- UC6
+fc --- UC7
+fc --- UC8
+fc --- UC9
+fc --- UC10
+fc --- UC11
+fc --- UC12
+@enduml
