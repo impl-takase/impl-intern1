@@ -1,0 +1,85 @@
+[debug] [2020-08-25T05:01:28.176Z] ----------------------------------------------------------------------
+[debug] [2020-08-25T05:01:28.177Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\silve\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-08-25T05:01:28.177Z] CLI Version:   8.9.0
+[debug] [2020-08-25T05:01:28.177Z] Platform:      win32
+[debug] [2020-08-25T05:01:28.178Z] Node Version:  v12.18.3
+[debug] [2020-08-25T05:01:28.179Z] Time:          Tue Aug 25 2020 14:01:28 GMT+0900 (GMT+09:00)
+[debug] [2020-08-25T05:01:28.179Z] ----------------------------------------------------------------------
+[debug] [2020-08-25T05:01:28.179Z] 
+[debug] [2020-08-25T05:01:28.194Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-25T05:01:28.194Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\silve\OneDrive\デスクトップ\大学関連\impl-intern1\my-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2020-08-25T05:08:12.894Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-08-25T05:08:12.894Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-08-25T05:08:13.117Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:20 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:13.124Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+ {"projectId":"impl-intern-2020","name":"impl-intern"}
+[debug] [2020-08-25T05:08:14.195Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:21 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=779","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:14.196Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8557227495098317118  
+ 
+[debug] [2020-08-25T05:08:15.051Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:22 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=787","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:15.553Z] [Project Creation Poller] Retrying task index 0
+[debug] [2020-08-25T05:08:15.553Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8557227495098317118  
+ 
+[debug] [2020-08-25T05:08:16.417Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:23 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=802","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:17.420Z] [Project Creation Poller] Retrying task index 0
+[debug] [2020-08-25T05:08:17.420Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8557227495098317118  
+ 
+[debug] [2020-08-25T05:08:18.261Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:25 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=778","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:18.264Z] >>> HTTP REQUEST POST https://firebase.googleapis.com/v1beta1/projects/impl-intern-2020:addFirebase  
+ 
+[debug] [2020-08-25T05:08:21.192Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:28 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:21.193Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjUzNWVkNTYtN2JmYy00ZGU1LTljY2ItNTRjNjI3OTdlMWYz  
+ 
+[debug] [2020-08-25T05:08:22.317Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:22.818Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-08-25T05:08:22.818Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjUzNWVkNTYtN2JmYy00ZGU1LTljY2ItNTRjNjI3OTdlMWYz  
+ 
+[debug] [2020-08-25T05:08:23.913Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:31 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:24.914Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-08-25T05:08:24.914Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjUzNWVkNTYtN2JmYy00ZGU1LTljY2ItNTRjNjI3OTdlMWYz  
+ 
+[debug] [2020-08-25T05:08:26.018Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:28.018Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-08-25T05:08:28.019Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjUzNWVkNTYtN2JmYy00ZGU1LTljY2ItNTRjNjI3OTdlMWYz  
+ 
+[debug] [2020-08-25T05:08:29.311Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-25T05:08:33.312Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2020-08-25T05:08:33.312Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjUzNWVkNTYtN2JmYy00ZGU1LTljY2ItNTRjNjI3OTdlMWYz  
+ 
+[debug] [2020-08-25T05:08:34.363Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 25 Aug 2020 05:08:41 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Your Firebase project is ready! ===
+[info] 
+[info] Project information:
+[info]    - Project ID: impl-intern-2020
+[info]    - Project Name: impl-intern
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/impl-intern-2020/overview
+[info] i  Using project impl-intern-2020 (impl-intern) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 

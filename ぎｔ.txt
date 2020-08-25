@@ -1,0 +1,7 @@
+git checkout -b firebase
+git branch
+
+
+git branch aaa
+git add .
+git commit -m ''
