@@ -1,0 +1,90 @@
+{
+    "item": [
+        {
+            "isInventory": true,
+            "isDevice": true,
+            "ID": "implMBP001",
+            "name": "macbookpro",
+            "type": "PC",
+            "os": "macOS",
+            "color": "白",
+            "model": "~~~",
+            "modelType": "---",
+            "arrivalDate": 20200825,
+            "holder": "加納",
+            "owner": "村井"
+        },
+        {
+            "isInventory": true,
+            "isDevice": true,
+            "ID": "implmouse001",
+            "name": "--",
+            "type": "マウス",
+            "os": null,
+            "color": "黒",
+            "model": "-",
+            "modelType": "-",
+            "arrivalDate": 20200825,
+            "holder": "-",
+            "owner": "村井"
+        },
+        {
+            "isInventory": true,
+            "isDevice": false,
+            "ID": "implBook001",
+            "name": "○○○入門",
+            "author": "加納",
+            "category": "PHP",
+            "arrivalDate": 20200825,
+            "holder": "加納",
+            "owner": "--"
+        },
+        {
+            "isInventory": true,
+            "isDevice": false,
+            "ID": "implBook002",
+            "name": "○○○応用",
+            "author": "高瀬",
+            "category": "java",
+            "arrivalDate": 20200825,
+            "holder": "--",
+            "owner": "高瀬"
+        },
+        {
+            "isInventory": true,
+            "isDevice": false,
+            "ID": "implBook003",
+            "name": "△△△入門",
+            "author": "高瀬",
+            "category": "javaScript",
+            "arrivalDate": 20200825,
+            "holder": "~~",
+            "owner": "村井"
+        },
+        {
+            "isInventory": false,
+            "isDevice": false,
+            "ID": "implBook003",
+            "name": "△△△入門",
+            "author": "高瀬",
+            "category": "javaScript",
+            "arrivalDate": 20200825,
+            "holder": "~~",
+            "owner": "村井"
+        },
+        {
+            "isInventory": true,
+            "isDevice": true,
+            "ID": "implMBP001",
+            "name": "macbookpro",
+            "type": "PC",
+            "os": "macOS",
+            "color": "白",
+            "model": "~~~",
+            "modelType": "---",
+            "arrivalDate": 20200825,
+            "holder": "加納",
+            "owner": "村井"
+        }
+    ]
+}
