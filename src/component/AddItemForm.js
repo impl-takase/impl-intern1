@@ -42,15 +42,14 @@ const AddItemForm = (props) => {
                 { labelName: "貸出人", inputType: "text", inputValue: holder, inputOnchange: setHolder }
             ] : []
 
-    console.log(props.tabelContent)
+    //console.log(props.tabelContent)
 
     const handleChange = (e, inputOnchange) => {
         console.log(e.currentTarget.value)
         inputOnchange(e.currentTarget.value)
     }
-
     const handleSubmit = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
         db.collection('items').add(
             props.tabelContent === 'device' ?
                 {

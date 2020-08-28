@@ -19,27 +19,27 @@ const TableContent = (props) => {
     return (
       <tr>
         <td key={props.key} nowrap>
-          {props.anArray.name}
+          {props.item.name}
         </td>
-        <td>{props.anArray.ID}</td>
-        <td>{props.anArray.author}</td>
-        <td>{props.anArray.category}</td>
-        <td>{props.anArray.os}</td>
-        <td>{props.anArray.model}</td>
-        <td>{props.anArray.modelType}</td>
-        <td>{props.anArray.color}</td>
-        <td>{props.anArray.arrivalDate}</td>
-        <td>{props.anArray.holder}</td>
-        <td>{props.anArray.owner}</td>
+        <td>{props.item.ID}</td>
+        <td>{props.item.author}</td>
+        <td>{props.item.category}</td>
+        <td>{props.item.os}</td>
+        <td>{props.item.model}</td>
+        <td>{props.item.modelType}</td>
+        <td>{props.item.color}</td>
+        <td>{props.item.arrivalDate}</td>
+        <td>{props.item.holder}</td>
+        <td>{props.item.owner}</td>
         <td>
           <Button
-            task={() => handleClickdelete(props.anArray.id)}
+            task={() => () => handleClickdelete(props.item.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            //task={()=>handleClickdelete(props.anArray.id)}
+            //task={()=>handleClickdelete(props.item.id)}
             buttonName={"変更"}
           />
         </td>
@@ -49,141 +49,137 @@ const TableContent = (props) => {
     return (
       <tr>
         <td key={props.key} nowrap>
-          {props.anArray.name}
+          {props.item.name}
         </td>
-        <td>{props.anArray.ID}</td>
-        <td>{props.anArray.author}</td>
-        <td>{props.anArray.category}</td>
-        <td>{props.anArray.os}</td>
-        <td>{props.anArray.model}</td>
-        <td>{props.anArray.modelType}</td>
-        <td>{props.anArray.color}</td>
+        <td>{props.item.ID}</td>
+        <td>{props.item.author}</td>
+        <td>{props.item.category}</td>
+        <td>{props.item.os}</td>
+        <td>{props.item.model}</td>
+        <td>{props.item.modelType}</td>
+        <td>{props.item.color}</td>
         <td>
           <Button
-            task={() => handleClickdelete(props.anArray.id)}
+            task={() => handleClickdelete(props.item.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            //task={()=>handleClickdelete(props.anArray.id)}
+            //task={()=>handleClickdelete(props.item.id)}
             buttonName={"変更"}
           />
         </td>
       </tr>
     );
   } else if (
-    props.anArray.isInventory === true &&
-    props.anArray.isDevice === true
+    props.labelName === "stockMachine"
   ) {
     return (
       <tr>
         <td key={props.key} nowrap>
-          {props.anArray.type}
+          {props.item.type}
         </td>
-        <td>{props.anArray.ID}</td>
-        <td>{props.anArray.name}</td>
-        <td>{props.anArray.os}</td>
-        <td>{props.anArray.color}</td>
-        <td>{props.anArray.model}</td>
-        <td>{props.anArray.modelType}</td>
-        <td>{props.anArray.arrivalDate}</td>
-        <td>{props.anArray.holder}</td>
-        <td>{props.anArray.owner}</td>
+        <td>{props.item.ID}</td>
+        <td>{props.item.name}</td>
+        <td>{props.item.os}</td>
+        <td>{props.item.color}</td>
+        <td>{props.item.model}</td>
+        <td>{props.item.modelType}</td>
+        <td>{props.item.arrivalDate}</td>
+        <td>{props.item.holder}</td>
+        <td>{props.item.owner}</td>
         <td>
           <Button
-            task={() => handleClickdelete(props.anArray.id)}
+            task={() => handleClickdelete(props.item.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            //task={()=>handleClickdelete(props.anArray.id)}
+            //task={()=>handleClickdelete(props.item.id)}
             buttonName={"変更"}
           />
         </td>
       </tr>
     );
   } else if (
-    props.anArray.isInventory === true &&
-    props.anArray.isDevice === false
+    props.labelName === "stockBook"
   ) {
     return (
       <tr>
         <td key={props.key} nowrap>
-          {props.anArray.name}
+          {props.item.name}
         </td>
-        <td>{props.anArray.ID}</td>
-        <td>{props.anArray.author}</td>
-        <td>{props.anArray.category}</td>
-        <td>{props.anArray.arrivalDate}</td>
-        <td>{props.anArray.holder}</td>
-        <td>{props.anArray.owner}</td>
+        <td>{props.item.ID}</td>
+        <td>{props.item.author}</td>
+        <td>{props.item.category}</td>
+        <td>{props.item.arrivalDate}</td>
+        <td>{props.item.holder}</td>
+        <td>{props.item.owner}</td>
         <td>
           <Button
-            task={() => handleClickdelete(props.anArray.id)}
+            task={() => handleClickdelete(props.item.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            //task={()=>handleClickdelete(props.anArray.id)}
+            //task={()=>handleClickdelete(props.item.id)}
             buttonName={"変更"}
           />
         </td>
       </tr>
     );
   } else if (
-    props.anArray.isInventory === false &&
-    props.anArray.isDevice === true
+    props.labelName === "orderMachine"
   ) {
     return (
       <tr>
         <td key={props.key} nowrap>
-          {props.anArray.type}
+          {props.item.type}
         </td>
-        <td>{props.anArray.ID}</td>
-        <td>{props.anArray.name}</td>
-        <td>{props.anArray.os}</td>
-        <td>{props.anArray.color}</td>
-        <td>{props.anArray.model}</td>
-        <td>{props.anArray.modelType}</td>
-        <td>{props.anArray.arrivalDate}</td>
+        <td>{props.item.ID}</td>
+        <td>{props.item.name}</td>
+        <td>{props.item.os}</td>
+        <td>{props.item.color}</td>
+        <td>{props.item.model}</td>
+        <td>{props.item.modelType}</td>
+        <td>{props.item.arrivalDate}</td>
         <td>
           <Button
-            task={() => handleClickdelete(props.anArray.id)}
+            task={() => handleClickdelete(props.item.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            //task={()=>handleClickdelete(props.anArray.id)}
+            //task={()=>handleClickdelete(props.item.id)}
             buttonName={"変更"}
           />
         </td>
       </tr>
     );
   } else if (
-    props.anArray.isInventory === false &&
-    props.anArray.isDevice === false
+    props.labelName === "orderBook"
   ) {
     return (
       <tr>
         <td key={props.key} nowrap>
-          {props.anArray.name}
+          {props.item.name}
         </td>
-        <td>{props.anArray.ID}</td>
-        <td>{props.anArray.author}</td>
-        <td>{props.anArray.category}</td>
+        <td>{props.item.ID}</td>
+        <td>{props.item.author}</td>
+        <td>{props.item.category}</td>
         <td>
           <Button
-            task={() => handleClickdelete(props.anArray.id)}
+            task={() => handleClickdelete(props.item.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            //task={()=>handleClickdelete(props.anArray.id)}
+            //task={()=>handleClickdelete(props.item.id)}
             buttonName={"変更"}
           />
         </td>

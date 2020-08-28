@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Table from "./component/Table";
+//import Table from "./component/Table";
 import TableContent from "./component/TableContent";
 import Button from "./component/Button";
 //import json from "./data.json";
 import firebase from './firebase';
 import AddItemForm from './component/AddItemForm'
-
-// firebase.firestore().collection('item').add({
-//   id:0,
-//   task:'Reactを勉強する',
-//   explanation: 'react勉強'
-// }
-// )
+import { render } from "@testing-library/react";
 
 const db = firebase.firestore()
 
@@ -69,7 +63,16 @@ function App() {
     "削除",
     "変更",
   ];
-  const orderBook = ["タイトル", "管理番号", "筆者", "領域", "削除", "変更"];
+
+  const orderBook = [
+    "タイトル",
+    "管理番号",
+    "筆者",
+    "領域",
+    "削除",
+    "変更"
+  ];
+
   const orderAll = [
     "機械の種類/タイトル",
     "管理番号",
@@ -82,6 +85,7 @@ function App() {
     "削除",
     "変更",
   ];
+
   const [items, setItems] = useState([]);
   const [label, setLabel] = useState([]);
   const [context, setContext] = useState([{}]);
@@ -90,7 +94,7 @@ function App() {
   const [tabelContent, setTabelContent] = useState("all");
 
   useEffect(() => {
-    //console.log("2")
+    console.log('ok')
     db.collection('items')
       .onSnapshot((snapshot) => {
         const newItems = snapshot.docs.map((doc) => ({
@@ -101,64 +105,38 @@ function App() {
       })
   }, []);
 
-  //console.log('1')
 
   const setL = (a, tableContent) => {
-    setLabel(a);
+    let newArray = [];
 
-    //var items = [...json.item];
-    var newArray = [{}];
-    //console.log(items)
+    setLabel(a);　//ラベルに
+    a === stockMachine ? setLabelName("stockMachine")
+      : a === stockBook ? setLabelName("stockBook")
+        : a === stockAll ? setLabelName("stockAll")
+          : a === orderMachine ? setLabelName("orderMachine")
+            : a === orderMachine ? setLabelName("orderMachine")
+              : setLabelName("orderMachine")
 
-    if (a === stockMachine) {
-      newArray = items.filter(
+    newArray =
+      a === stockMachine ? items.filter(
         (item) => item.isInventory === true && item.isDevice === true
-      );
-      setContext(newArray);
-      //console.log(context);
-      setLabelName("stockMachine");
-    }
-
-    if (a === stockBook) {
-      newArray = items.filter(
-        (item) => item.isInventory === true && item.isDevice === false
-      );
-      setContext(newArray);
-      //console.log(context);
-      setLabelName("stockBook");
-    }
-
-    if (a === orderMachine) {
-      newArray = items.filter(
-        (item) => item.isInventory === false && item.isDevice === true
-      );
-      setContext(newArray);
-      //console.log(context);
-      setLabelName("orderMachine");
-    }
-
-    if (a === orderBook) {
-      newArray = items.filter(
-        (item) => item.isInventory === false && item.isDevice === false
-      );
-      setContext(newArray);
-      //console.log(context);
-      setLabelName("orderBook");
-    }
-
-    if (a === stockAll) {
-      newArray = items.filter((item) => item.isInventory === true);
-      setContext(newArray);
-      //console.log(context);
-      setLabelName("stockAll");
-    }
-
-    if (a === orderAll) {
-      newArray = items.filter((item) => item.isInventory === false);
-      setContext(newArray);
-      //console.log(context);
-      setLabelName("orderAll");
-    }
+      )
+        : a === stockBook ? items.filter(
+          (item) => item.isInventory === true && item.isDevice === false
+        )
+          : a === stockAll ? items.filter(
+            (item) => item.isInventory === true
+          )
+            : a === orderMachine ? items.filter(
+              (item) => item.isInventory === false && item.isDevice === true
+            )
+              : a === orderMachine ? items.filter(
+                (item) => item.isInventory === false && item.isDevice === false
+              )
+                : items.filter(
+                  (item) => item.isInventory === true
+                )
+    setContext(newArray);
     setTabelContent(tableContent)
   };
 
@@ -240,20 +218,19 @@ function App() {
       >
         <thead>
           <tr>
-            {label.map((item, index) => {
-              return <Table side={item} key={index} />;
-            })}
+            {label.map((item, index) =>
+              <th key={index}>
+                <font>{item}</font>
+              </th>
+            )}
           </tr>
         </thead>
-
-        {/* {sconsole.log(label)} */}
         {context.map((item, index) => {
           return (
             <TableContent
-              labelName={labelName}
-              anArray={item}
               key={index}
-              stockMachine={stockMachine}
+              labelName={labelName}
+              item={item}
             />
           );
         })}
