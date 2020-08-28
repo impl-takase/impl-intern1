@@ -1,7 +1,20 @@
 import React from "react";
 import Button from "./Button";
 
+import firebase from '../firebase'
+
+const db = firebase.firestore()
+
 const TableContent = (props) => {
+
+  const handleClickdelete = (id) => {
+    db.collection("items").doc(id).delete().then(function () {
+      console.log("Document successfully deleted!");
+    }).catch(function (error) {
+      console.error("Error removing document: ", error);
+    });
+  }
+
   if (props.labelName === "stockAll") {
     return (
       <tr>
@@ -20,13 +33,13 @@ const TableContent = (props) => {
         <td>{props.anArray.owner}</td>
         <td>
           <Button
-            /*task={処理}*/
+            task={() => handleClickdelete(props.anArray.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            /*task={処理}*/
+            //task={()=>handleClickdelete(props.anArray.id)}
             buttonName={"変更"}
           />
         </td>
@@ -47,13 +60,13 @@ const TableContent = (props) => {
         <td>{props.anArray.color}</td>
         <td>
           <Button
-            /*task={処理}*/
+            task={() => handleClickdelete(props.anArray.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            /*task={処理}*/
+            //task={()=>handleClickdelete(props.anArray.id)}
             buttonName={"変更"}
           />
         </td>
@@ -79,13 +92,13 @@ const TableContent = (props) => {
         <td>{props.anArray.owner}</td>
         <td>
           <Button
-            /*task={処理}*/
+            task={() => handleClickdelete(props.anArray.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            /*task={処理}*/
+            //task={()=>handleClickdelete(props.anArray.id)}
             buttonName={"変更"}
           />
         </td>
@@ -108,13 +121,13 @@ const TableContent = (props) => {
         <td>{props.anArray.owner}</td>
         <td>
           <Button
-            /*task={処理}*/
+            task={() => handleClickdelete(props.anArray.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            /*task={処理}*/
+            //task={()=>handleClickdelete(props.anArray.id)}
             buttonName={"変更"}
           />
         </td>
@@ -138,13 +151,13 @@ const TableContent = (props) => {
         <td>{props.anArray.arrivalDate}</td>
         <td>
           <Button
-            /*task={処理}*/
+            task={() => handleClickdelete(props.anArray.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            /*task={処理}*/
+            //task={()=>handleClickdelete(props.anArray.id)}
             buttonName={"変更"}
           />
         </td>
@@ -164,20 +177,20 @@ const TableContent = (props) => {
         <td>{props.anArray.category}</td>
         <td>
           <Button
-            /*task={処理}*/
+            task={() => handleClickdelete(props.anArray.id)}
             buttonName={"削除"}
           />
         </td>
         <td>
           <Button
-            /*task={処理}*/
+            //task={()=>handleClickdelete(props.anArray.id)}
             buttonName={"変更"}
           />
         </td>
       </tr>
     );
   } else {
-    return <p>項目を選んでね</p>;
+    return <thead><tr><th>項目を選んでね</th></tr></thead>;
   }
 };
 

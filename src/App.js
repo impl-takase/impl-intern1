@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Table from "./component/Table";
 import TableContent from "./component/TableContent";
 import Button from "./component/Button";
-import json from "./data.json";
-//import firebase from './firebase';
+//import json from "./data.json";
+import firebase from './firebase';
+import AddItemForm from './component/AddItemForm'
 
 // firebase.firestore().collection('item').add({
 //   id:0,
@@ -12,6 +13,8 @@ import json from "./data.json";
 //   explanation: 'react勉強'
 // }
 // )
+
+const db = firebase.firestore()
 
 function App() {
   const stockMachine = [
@@ -79,67 +82,84 @@ function App() {
     "削除",
     "変更",
   ];
-
+  const [items, setItems] = useState([]);
   const [label, setLabel] = useState([]);
   const [context, setContext] = useState([{}]);
   const [labelName, setLabelName] = useState("");
   const [isInventory, setIsInventory] = useState(true);
+  const [tabelContent, setTabelContent] = useState("all");
 
-  const setL = (a) => {
+  useEffect(() => {
+    //console.log("2")
+    db.collection('items')
+      .onSnapshot((snapshot) => {
+        const newItems = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+        setItems(newItems)
+      })
+  }, []);
+
+  //console.log('1')
+
+  const setL = (a, tableContent) => {
     setLabel(a);
 
-    var copiedJson = [...json.item];
+    //var items = [...json.item];
     var newArray = [{}];
+    //console.log(items)
 
     if (a === stockMachine) {
-      newArray = copiedJson.filter(
+      newArray = items.filter(
         (item) => item.isInventory === true && item.isDevice === true
       );
       setContext(newArray);
-      console.log(context);
+      //console.log(context);
       setLabelName("stockMachine");
     }
 
     if (a === stockBook) {
-      newArray = copiedJson.filter(
+      newArray = items.filter(
         (item) => item.isInventory === true && item.isDevice === false
       );
       setContext(newArray);
-      console.log(context);
+      //console.log(context);
       setLabelName("stockBook");
     }
 
     if (a === orderMachine) {
-      newArray = copiedJson.filter(
+      newArray = items.filter(
         (item) => item.isInventory === false && item.isDevice === true
       );
       setContext(newArray);
-      console.log(context);
+      //console.log(context);
       setLabelName("orderMachine");
     }
 
     if (a === orderBook) {
-      newArray = copiedJson.filter(
+      newArray = items.filter(
         (item) => item.isInventory === false && item.isDevice === false
       );
       setContext(newArray);
-      console.log(context);
+      //console.log(context);
       setLabelName("orderBook");
     }
 
     if (a === stockAll) {
-      newArray = copiedJson.filter((item) => item.isInventory === true);
+      newArray = items.filter((item) => item.isInventory === true);
       setContext(newArray);
-      console.log(context);
+      //console.log(context);
       setLabelName("stockAll");
     }
 
     if (a === orderAll) {
-      newArray = copiedJson.filter((item) => item.isInventory === false);
+      newArray = items.filter((item) => item.isInventory === false);
       setContext(newArray);
-      console.log(context);
+      //console.log(context);
       setLabelName("orderAll");
     }
+    setTabelContent(tableContent)
   };
 
   return (
@@ -157,55 +177,59 @@ function App() {
         buttonName={"発注"}
       />
       <br></br>
-      <Button buttonName={"追加"} />
+      <AddItemForm
+        tabelContent={tabelContent}
+        isInventory={isInventory}
+        isAdd={true}
+      />
       <br></br>
       {isInventory ? (
         <div>
           <Button
             task={() => {
-              setL(stockMachine);
+              setL(stockMachine, "device");
             }}
             buttonName={"機器"}
           />
 
           <Button
             task={() => {
-              setL(stockBook);
+              setL(stockBook, 'book');
             }}
             buttonName={"書籍"}
           />
 
           <Button
             task={() => {
-              setL(stockAll);
+              setL(stockAll, 'all');
             }}
             buttonName={"全て"}
           />
         </div>
       ) : (
-        <div>
-          <Button
-            task={() => {
-              setL(orderMachine);
-            }}
-            buttonName={"機器"}
-          />
+          <div>
+            <Button
+              task={() => {
+                setL(orderMachine, "device");
+              }}
+              buttonName={"機器"}
+            />
 
-          <Button
-            task={() => {
-              setL(orderBook);
-            }}
-            buttonName={"書籍"}
-          />
+            <Button
+              task={() => {
+                setL(orderBook, "book");
+              }}
+              buttonName={"書籍"}
+            />
 
-          <Button
-            task={() => {
-              setL(orderAll);
-            }}
-            buttonName={"全て"}
-          />
-        </div>
-      )}
+            <Button
+              task={() => {
+                setL(orderAll, 'all');
+              }}
+              buttonName={"全て"}
+            />
+          </div>
+        )}
 
       <table
         border="1"
@@ -214,12 +238,15 @@ function App() {
         cellpadding="5"
         bordercolor="#333333"
       >
-        <tr>
-          {label.map((item, index) => {
-            return <Table side={item} key={index} />;
-          })}
-        </tr>
-        {console.log(label)}
+        <thead>
+          <tr>
+            {label.map((item, index) => {
+              return <Table side={item} key={index} />;
+            })}
+          </tr>
+        </thead>
+
+        {/* {sconsole.log(label)} */}
         {context.map((item, index) => {
           return (
             <TableContent
