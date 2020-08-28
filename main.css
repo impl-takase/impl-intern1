@@ -1,0 +1,320 @@
+/* 画面上部の空白削除 */
+
+* {
+    margin: 0px;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: rgb(199, 243, 201);
+}
+
+#hed {
+    display: flex;
+}
+
+#hed logo {
+    color: #ffffff;
+    background-color: rgb(91, 228, 86);
+    width: 160px;
+    height: 50px;
+    padding: 10px;
+    line-height: 50px;
+    text-align: center;
+}
+
+#hed user {
+    margin-left: 30px;
+}
+
+#hed i {
+    position: absolute;
+    right: 10px;
+    margin: auto;
+}
+
+.hidden_menu {
+    display: none;
+}
+
+#option:checked~#hidden_menus {
+    height: 30px;
+}
+
+.menu input {
+    display: none;
+}
+
+.menu ul {
+    width: 180px;
+    margin-right: 20px;
+    padding-left: 15px;
+    border: 1px solid;
+    border-top: transparent;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: rgb(199, 243, 201);
+    list-style: none;
+    text-align: left;
+}
+
+.menu li {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#menu_bar01:checked~#links01 li,
+#menu_bar02:checked~#links02 li {
+    height: 54px;
+    opacity: 1;
+}
+
+.area {
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.tab {
+    border: 1px solid rgb(21, 161, 8);
+    width: calc(100%/2);
+    height: 50px;
+    background-color: rgb(235, 245, 235);
+    line-height: 50px;
+    font-size: 15px;
+    text-align: center;
+    display: block;
+    float: left;
+    order: -1;
+}
+
+div.box {
+    background-color: rgb(235, 245, 235);
+    width: 100%;
+    height: 10px
+}
+
+table,
+td {
+    /* margin: auto; */
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: rgb(138, 68, 68);
+}
+
+
+/*タブ切り替え全体のスタイル*/
+
+.tabs {
+    margin-top: 0px;
+    padding-bottom: 40px;
+    background-color: rgb(221, 238, 216);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+}
+
+
+/*タブのスタイル*/
+
+.tab_item {
+    width: calc(100%/2);
+    height: 50px;
+    border-bottom: 3px solid #5abd5f;
+    background-color: #d9d9d9;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.tab_item:hover {
+    opacity: 0.75;
+}
+
+
+/*ラジオボタンを全て消す*/
+
+input[name="tab_item"] {
+    display: none;
+}
+
+
+/*タブ切り替えの中身のスタイル*/
+
+.tab_content {
+    display: none;
+    padding: 40px 40px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+
+#zaiko:checked~#zaiko_content,
+#hattyuu:checked~#hattyuu_content {
+    display: block;
+}
+
+
+/*選択されているタブのスタイルを変える*/
+
+.tabs input:checked+.tab_item {
+    background-color: #28c528;
+    color: #fff;
+}
+
+
+/*タブのスタイル2*/
+
+.tab2_item {
+    width: 90px;
+    height: 30px;
+    border-bottom: 3px solid #5abd5f;
+    background-color: #d9d9d9;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.tab2_item:hover {
+    opacity: 0.75;
+}
+
+
+/*ラジオボタンを全て消す*/
+
+input[name="tab2_item"] {
+    display: none;
+}
+
+
+/*タブ切り替えの中身のスタイル*/
+
+.tab2_content2 {
+    display: none;
+    padding: 20px 0px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+
+#mch:checked~#mch_content,
+#books:checked~#books_content,
+#zenbu:checked~#zenbu_content {
+    display: block;
+}
+
+
+/*選択されているタブのスタイルを変える*/
+
+.tabs input:checked+.tab2_item {
+    background-color: #28c528;
+    color: #fff;
+}
+
+
+/*タブのスタイル3*/
+
+.tab3_item {
+    width: 90px;
+    height: 30px;
+    border-bottom: 3px solid #5abd5f;
+    background-color: #d9d9d9;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.tab3_item:hover {
+    opacity: 0.75;
+}
+
+
+/*ラジオボタンを全て消す*/
+
+input[name="tab3_item"] {
+    display: none;
+}
+
+
+/*タブ切り替えの中身のスタイル*/
+
+.tab3_content3 {
+    display: none;
+    padding: 20px 0px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+
+#mch3:checked~#mch3_content,
+#books3:checked~#books3_content,
+#zenbu3:checked~#zenbu3_content {
+    display: block;
+}
+
+
+/*選択されているタブのスタイルを変える*/
+
+.tabs input:checked+.tab3_item {
+    background-color: #28c528;
+    color: #fff;
+}
+
+.searchAdd {
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    /* right: 20px; */
+    float: right;
+    display: flex;
+}
+
+.search {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(103, 202, 111);
+    margin-right: 10px;
+}
+
+.addItem {
+    width: 100px;
+    background-color: rgb(103, 202, 111);
+}

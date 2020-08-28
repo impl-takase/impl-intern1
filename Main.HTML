@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+    <title></title>
+    <style></style>
+</head>
+
+<body>
+    <header id="hed">
+        <p>
+            <logo>どこでもインプル</logo>
+        </p>
+        <user>
+            <p>ID:000000</p>
+            <p>ユーザー：村井大輝</p>
+        </user>
+        
+        <i href="Main.html">
+      <!-- <input type="image" src="gear.png" id="option" alt="option" width="40" height="40"/> -->
+      <div class="menu">
+      <label for="menu_bar01">オプション</label>
+      <input type="checkbox" id="menu_bar01" class="accordion" />
+      <ul id="links01">
+        <li><a href="">新規利用者の登録</a></li>
+        <li><a href="">利用者一覧</a></li>
+        <li><a href="">ログアウト</a></li>
+      </ul>
+        </div>
+    </header>
+
+
+    <div class="tabs">
+        <input id="zaiko" type="radio" name="tab_item" checked>
+        <label class="tab_item" for="zaiko">在庫</label>
+
+        <input id="hattyuu" type="radio" name="tab_item">
+        <label class="tab_item" for="hattyuu">発注</label>
+
+        <div class="tab_content" id="zaiko_content">
+            <div class="tab_content_description">
+                <!-- <p class="c-txtsp">総合の内容がここに入ります</p> -->
+
+                <div class="tabs2">
+                    <input id="mch" type="radio" name="tab2_item">
+                    <label class="tab2_item" for="mch">機器</label>
+
+                    <input id="books" type="radio" name="tab2_item" checked>
+                    <label class="tab2_item" for="books">書籍</label>
+
+                    <input id="zenbu" type="radio" name="tab2_item">
+                    <label class="tab2_item" for="zenbu">全て</label>
+
+
+                    <div class="searchAdd">
+                        <p>
+                            <input type="text" name="ser" id="search">
+                            <label class="search"><a>検索</a></label>
+                        </p>
+                        <label class="addItem">在庫を追加</label>
+                    </div>
+
+                    <div class="tab2_content2" id="mch_content">
+                        <div class="tab2_content2_description">
+                            <p class="c-txtsp">機器の在庫票↓</p>
+                            <table>
+                                <tr>
+                                    <th>機械の種類</th>
+                                    <th>管理番号</th>
+                                    <th>種類</th>
+                                    <th>OS</th>
+                                    <th>色</th>
+                                    <th>機種</th>
+                                    <th>モデル</th>
+                                    <th>入荷日</th>
+                                    <th>保管者</th>
+                                    <th>貸出人</th>
+                                    <th>削除</th>
+                                    <th>変更</th>
+                                </tr>
+                                <tr>
+                                    <td>MacBok</td>
+                                    <td>Doe</td>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                </tr>
+                                <tr>
+                                    <td>Jane</td>
+                                    <td>Doe</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab2_content2" id="books_content">
+                        <div class="tab2_content2_description">
+                            <p class="c-txtsp">プログラミングの内容がここに入ります1</p>
+                        </div>
+                    </div>
+
+
+                    <div class="tab2_content2" id="zenbu_content">
+                        <div class="tab2_content2_description">
+                            <p class="c-txtsp">全部合わせた表</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab_content" id="hattyuu_content">
+            <div class="tab_content_description">
+                <!-- <p class="c-txtsp">ここにまた票とか入れたい</p> -->
+
+                <div class="tabs3">
+                  <input id="mch3" type="radio" name="tab3_item">
+                  <label class="tab3_item" for="mch3">機器</label>
+
+                  <input id="books3" type="radio" name="tab3_item" checked>
+                  <label class="tab3_item" for="books3">書籍</label>
+
+                  <input id="zenbu3" type="radio" name="tab3_item">
+                  <label class="tab3_item" for="zenbu3">全て</label>
+
+                  <div>
+                    <label>発注状況</label>
+                    <!-- <input> -->
+                  </div>
+
+                  <div class="searchAdd">
+                      <p>
+                          <input type="text" name="ser" id="search">
+                          <label class="search"><a>検索</a></label>
+                      </p>
+                      <label class="addItem">在庫を追加</label>
+                  </div>
+
+                  <div class="tab3_content3" id="mch3_content">
+                      <div class="tab3_content3_description">
+                          <p class="c-txtsp">機器の在庫票↓</p>
+                          
+                      </div>
+                  </div>
+
+                  <div class="tab3_content3" id="books3_content">
+                    <div class="tab3_content3_description">
+                        <p class="c-txtsp">書籍の発注票↓</p>
+                        
+                    </div>
+                </div>
+
+                <div class="tab3_content3" id="zenbu3_content">
+                  <div class="tab3_content3_description">
+                      <p class="c-txtsp">全部の発注票↓</p>
+                      
+                  </div>
+              </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
