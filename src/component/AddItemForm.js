@@ -48,9 +48,9 @@ const AddItemForm = (props) => {
         console.log(e.currentTarget.value)
         inputOnchange(e.currentTarget.value)
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        db.collection('items').add(
+        await db.collection('items').add(
             props.tabelContent === 'device' ?
                 {
                     name,
@@ -106,7 +106,7 @@ const AddItemForm = (props) => {
             setHolder('')
             setOwner('')
         }
-
+        props.createNewArray(props.labelName)
     }
     return (
         <>

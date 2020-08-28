@@ -33,7 +33,7 @@ const TableContent = (props) => {
         <td>{props.item.owner}</td>
         <td>
           <Button
-            task={() => () => handleClickdelete(props.item.id)}
+            task={() => handleClickdelete(props.item.id)}
             buttonName={"削除"}
           />
         </td>

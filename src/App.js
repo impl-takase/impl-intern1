@@ -6,7 +6,6 @@ import Button from "./component/Button";
 //import json from "./data.json";
 import firebase from './firebase';
 import AddItemForm from './component/AddItemForm'
-import { render } from "@testing-library/react";
 
 const db = firebase.firestore()
 
@@ -105,38 +104,37 @@ function App() {
       })
   }, []);
 
+  const createNewArray = (a) => {
+    let newArray = [];
+    //console.log(a)
+    switch (a) {
+      case "stockMachine":
+        newArray = items.filter((item) => item.isInventory && item.isDevice)
+        break
+      case "stockBook":
+        newArray = items.filter((item) => item.isInventory && !item.isDevice)
+        break
+      case "stockAll":
+        newArray = items.filter((item) => item.isInventory)
+        break
+      case "orderMachine":
+        newArray = items.filter((item) => !item.isInventory && item.isDevice)
+        break
+      case "orderBook":
+        newArray = items.filter((item) => !item.isInventory && !item.isDevice)
+        break
+      case "orderAll":
+        newArray = items.filter((item) => !item.isInventory)
+        break
+      default:
+    }
+    setContext(newArray);
+  }
 
   const setL = (a, tableContent) => {
-    let newArray = [];
-
-    setLabel(a);　//ラベルに
-    a === stockMachine ? setLabelName("stockMachine")
-      : a === stockBook ? setLabelName("stockBook")
-        : a === stockAll ? setLabelName("stockAll")
-          : a === orderMachine ? setLabelName("orderMachine")
-            : a === orderMachine ? setLabelName("orderMachine")
-              : setLabelName("orderMachine")
-
-    newArray =
-      a === stockMachine ? items.filter(
-        (item) => item.isInventory === true && item.isDevice === true
-      )
-        : a === stockBook ? items.filter(
-          (item) => item.isInventory === true && item.isDevice === false
-        )
-          : a === stockAll ? items.filter(
-            (item) => item.isInventory === true
-          )
-            : a === orderMachine ? items.filter(
-              (item) => item.isInventory === false && item.isDevice === true
-            )
-              : a === orderMachine ? items.filter(
-                (item) => item.isInventory === false && item.isDevice === false
-              )
-                : items.filter(
-                  (item) => item.isInventory === true
-                )
-    setContext(newArray);
+    createNewArray(a)
+    setLabelName(a)
+    setLabel(eval(a))
     setTabelContent(tableContent)
   };
 
@@ -154,32 +152,34 @@ function App() {
         }}
         buttonName={"発注"}
       />
-      <br></br>
+      <br />
       <AddItemForm
         tabelContent={tabelContent}
         isInventory={isInventory}
-        isAdd={true}
+        createNewArray={createNewArray}
+        labelName={labelName}
+      //updateItem={updateItem}
       />
       <br></br>
       {isInventory ? (
         <div>
           <Button
             task={() => {
-              setL(stockMachine, "device");
+              setL("stockMachine", "device");
             }}
             buttonName={"機器"}
           />
 
           <Button
             task={() => {
-              setL(stockBook, 'book');
+              setL("stockBook", 'book');
             }}
             buttonName={"書籍"}
           />
 
           <Button
             task={() => {
-              setL(stockAll, 'all');
+              setL("stockAll", 'all');
             }}
             buttonName={"全て"}
           />
@@ -188,21 +188,21 @@ function App() {
           <div>
             <Button
               task={() => {
-                setL(orderMachine, "device");
+                setL("orderMachine", "device");
               }}
               buttonName={"機器"}
             />
 
             <Button
               task={() => {
-                setL(orderBook, "book");
+                setL("orderBook", "book");
               }}
               buttonName={"書籍"}
             />
 
             <Button
               task={() => {
-                setL(orderAll, 'all');
+                setL("orderAll", 'all');
               }}
               buttonName={"全て"}
             />
