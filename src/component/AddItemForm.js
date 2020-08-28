@@ -106,7 +106,8 @@ const AddItemForm = (props) => {
             setHolder('')
             setOwner('')
         }
-        props.createNewArray(props.labelName)
+
+        //props.createNewArray(props.labelName)
     }
     return (
         <>

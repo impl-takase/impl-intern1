@@ -95,6 +95,7 @@ function App() {
   useEffect(() => {
     console.log('ok')
     db.collection('items')
+      .orderBy("name", "desc")
       .onSnapshot((snapshot) => {
         const newItems = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -103,6 +104,10 @@ function App() {
         setItems(newItems)
       })
   }, []);
+
+  useEffect(() => {
+    createNewArray(labelName)
+  }, [items])
 
   const createNewArray = (a) => {
     let newArray = [];
