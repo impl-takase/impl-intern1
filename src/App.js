@@ -1,23 +1,55 @@
 import React from 'react';
 import './App.css';
-import firebase from './firebase';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import firebase from './components/firebase';
 
-// firebase.firestore().collection('item').add({
-//   id:0,
-//   task:'Reactを勉強する',
-//   explanation: 'react勉強'
-// }
-// )
+//screens
+import Home from './screens/Home.js';
+import Profile from './screens/Profile';
+import SignInOrUp from './screens/SignInOrUp.js';
+import SignUp from './screens/SignUp';
+
+import Auth from './components/Auth.js';
 
 
-function App() {
-
-
-  return (
-
-    <p>aa</p>
-
-  );
+class App extends React.Component {
+    render() {
+        return (
+          <div>
+            <Router>
+                <Switch>
+                    <Route exact path="/signin" component={SignInOrUp} />
+                    <Route exact path="/signup" component={SignUp} />
+                    {}
+                    <Auth>
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/profile" component={Profile} />
+                            <Route render={() => <p>not found.</p>} />
+                        </Switch>
+                    </Auth>
+                </Switch>
+            </Router> 
+           
+          </div>
+        );
+    }
 }
+
+
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(firebase.auth().currentUser.uid)
+  } else {
+    console.log('SignOut')
+  }
+});
+
+
+
+
+
 
 export default App;
