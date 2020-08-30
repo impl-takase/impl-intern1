@@ -93,9 +93,8 @@ function App() {
   const [tabelContent, setTabelContent] = useState("all");
 
   useEffect(() => {
-    console.log('ok')
+    //console.log('ok')
     db.collection('items')
-      .orderBy("name", "desc")
       .onSnapshot((snapshot) => {
         const newItems = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -143,17 +142,31 @@ function App() {
     setTabelContent(tableContent)
   };
 
+  const handleClick = (isInventory) => {
+    setIsInventory(isInventory);
+    const a =
+      isInventory === false && tabelContent === "device" ? "orderMachine"
+        : isInventory === false && tabelContent === "book" ? "orderBook"
+          : isInventory === false && tabelContent === "all" ? "orderAll"
+            : isInventory === true && tabelContent === "device" ? "stockMachine"
+              : isInventory === true && tabelContent === "book" ? "stockBook"
+                : "stockAll"
+    setLabelName(a)
+    setLabel(eval(a))
+    createNewArray(a)
+  }
+
   return (
     <div>
       <Button
         task={() => {
-          setIsInventory(true);
+          handleClick(true)
         }}
         buttonName={"在庫"}
       />
       <Button
         task={() => {
-          setIsInventory(false);
+          handleClick(false)
         }}
         buttonName={"発注"}
       />
