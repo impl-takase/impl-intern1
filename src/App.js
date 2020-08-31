@@ -85,6 +85,19 @@ function App() {
     "変更",
   ];
 
+  const contents = {
+    order: {
+      device: { name: "orderMachine", data: orderMachine },
+      book: { name: "orderBook", data: orderBook },
+      all: { name: "orderAll", data: orderAll },
+    },
+    stock: {
+      device: { name: "stockMachine", data: stockMachine },
+      book: { name: "stockBook", data: stockBook },
+      all: { name: "stockAll", data: stockAll },
+    },
+  };
+
   const [items, setItems] = useState([]);
   const [label, setLabel] = useState([]);
   const [context, setContext] = useState([{}]);
@@ -135,38 +148,33 @@ function App() {
     setContext(newArray);
   };
 
-  const setL = (a, tableContent) => {
-    createNewArray(a);
-    setLabelName(a);
-    setLabel(eval(a));
+  const handleContentsClick = (tableContent) => {//機器、書籍、全てがクリックされたとき
+    const a = isInventory ? contents.stock[tableContent] : contents.order[tableContent]
+    createNewArray(a.name);
+    setLabelName(a.name);
+    setLabel(a.data);
     setTabelContent(tableContent);
   };
 
-  const handleClick = (isInventory) => {
+  const handleInventoryClick = (isInventory) => {//在庫、発注ボタンがクリックされたとき
+    const a = isInventory ? contents.stock[tabelContent] : contents.order[tabelContent];
     setIsInventory(isInventory);
-    const a =
-      isInventory === false && tabelContent === "device" ? "orderMachine"
-        : isInventory === false && tabelContent === "book" ? "orderBook"
-          : isInventory === false && tabelContent === "all" ? "orderAll"
-            : isInventory === true && tabelContent === "device" ? "stockMachine"
-              : isInventory === true && tabelContent === "book" ? "stockBook"
-                : "stockAll"
-    setLabelName(a);
-    setLabel(eval(a));
-    createNewArray(a);
+    setLabelName(a.name);
+    setLabel(a.data);
+    createNewArray(a.name);
   }
 
   return (
     <div>
       <Button
         task={() => {
-          handleClick(true);
+          handleInventoryClick(true);
         }}
         buttonName={"在庫"}
       />
       <Button
         task={() => {
-          handleClick(false);
+          handleInventoryClick(false);
         }}
         buttonName={"発注"}
       />
@@ -183,21 +191,21 @@ function App() {
         <div>
           <Button
             task={() => {
-              setL("stockMachine", "device");
+              handleContentsClick("device");
             }}
             buttonName={"機器"}
           />
 
           <Button
             task={() => {
-              setL("stockBook", 'book');
+              handleContentsClick('book');
             }}
             buttonName={"書籍"}
           />
 
           <Button
             task={() => {
-              setL("stockAll", 'all');
+              handleContentsClick('all');
             }}
             buttonName={"全て"}
           />
@@ -206,21 +214,21 @@ function App() {
           <div>
             <Button
               task={() => {
-                setL("orderMachine", "device");
+                handleContentsClick("device");
               }}
               buttonName={"機器"}
             />
 
             <Button
               task={() => {
-                setL("orderBook", "book");
+                handleContentsClick("book");
               }}
               buttonName={"書籍"}
             />
 
             <Button
               task={() => {
-                setL("orderAll", 'all');
+                handleContentsClick('all');
               }}
               buttonName={"全て"}
             />
