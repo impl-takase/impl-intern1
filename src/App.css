@@ -128,7 +128,7 @@ input[name="tab2_item"] {
 
 .table {
   background-color: #a9ee7a;
-  border: 1;
+  border: 1px;
   border-color: #ffffff;
   width: 100%;
   border-collapse: collapse;

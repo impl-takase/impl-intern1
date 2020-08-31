@@ -84,12 +84,25 @@ function Home() {
     "変更",
   ];
 
+  const contents = {
+    order: {
+      device: { name: "orderMachine", data: orderMachine },
+      book: { name: "orderBook", data: orderBook },
+      all: { name: "orderAll", data: orderAll },
+    },
+    stock: {
+      device: { name: "stockMachine", data: stockMachine },
+      book: { name: "stockBook", data: stockBook },
+      all: { name: "stockAll", data: stockAll },
+    },
+  };
+
   const [items, setItems] = useState([]);
   const [label, setLabel] = useState([]);
   const [context, setContext] = useState([{}]);
   const [labelName, setLabelName] = useState("");
   const [isInventory, setIsInventory] = useState(true);
-  const [tabelContent, setTabelContent] = useState("book");
+  const [tabelContent, setTabelContent] = useState("device");
   const [isSetting, setIsSetting] = useState(true);
   const [isAddButton, setIsAddButton] = useState(false);
 
@@ -135,31 +148,28 @@ function Home() {
     setContext(newArray);
   };
 
-  const setL = (a, tableContent) => {
-    createNewArray(a);
-    setLabelName(a);
-    setLabel(eval(a));
+  // const setL = (a, tableContent) => {
+  //   createNewArray(a);
+  //   setLabelName(a);
+  //   setLabel(eval(a));
+  //   setTabelContent(tableContent);
+  // };
+
+  const handleContentsClick = (tableContent) => {//機器、書籍、全てがクリックされたとき
+    const a = isInventory ? contents.stock[tableContent] : contents.order[tableContent]
+    createNewArray(a.name);
+    setLabelName(a.name);
+    setLabel(a.data);
     setTabelContent(tableContent);
   };
 
-  const handleClick = (isInventory) => {
+  const handleInventoryClick = (isInventory) => {//在庫、発注ボタンがクリックされたとき
+    const a = isInventory ? contents.stock[tabelContent] : contents.order[tabelContent];
     setIsInventory(isInventory);
-    const a =
-      isInventory === false && tabelContent === "device"
-        ? "orderMachine"
-        : isInventory === false && tabelContent === "book"
-        ? "orderBook"
-        : isInventory === false && tabelContent === "all"
-        ? "orderAll"
-        : isInventory === true && tabelContent === "device"
-        ? "stockMachine"
-        : isInventory === true && tabelContent === "book"
-        ? "stockBook"
-        : "stockAll";
-    setLabelName(a);
-    setLabel(eval(a));
-    createNewArray(a);
-  };
+    setLabelName(a.name);
+    setLabel(a.data);
+    createNewArray(a.name);
+  }
 
   return (
     <div className="tabs">
@@ -169,7 +179,7 @@ function Home() {
         type="radio"
         name="tab_item"
         onClick={() => {
-          handleClick(true);
+          handleInventoryClick(true);
         }}
       ></input>
       <label className="tab_item" for="zaiko">
@@ -181,7 +191,7 @@ function Home() {
         type="radio"
         name="tab_item"
         onClick={() => {
-          handleClick(false);
+          handleInventoryClick(false);
         }}
       ></input>
       <label className="tab_item" for="hattyuu">
@@ -201,7 +211,7 @@ function Home() {
                 type="radio"
                 name="tab2_item"
                 onClick={() => {
-                  setL("stockMachine", "device");
+                  handleContentsClick("device");
                 }}
               ></input>
               <label className="tab2_item" for="mch">
@@ -212,7 +222,7 @@ function Home() {
                 type="radio"
                 name="tab2_item"
                 onClick={() => {
-                  setL("stockBook", "book");
+                  handleContentsClick("book");
                 }}
               ></input>
               <label className="tab2_item" for="books">
@@ -223,7 +233,7 @@ function Home() {
                 type="radio"
                 name="tab2_item"
                 onClick={() => {
-                  setL("stockAll", "all");
+                  handleContentsClick("all");
                 }}
               ></input>
               <label className="tab2_item" for="zenbu">
@@ -238,52 +248,52 @@ function Home() {
               </label>
             </div>
           ) : (
-            <div>
-              <div className="tabs2">
-                <input
-                  id="mch"
-                  type="radio"
-                  name="tab2_item"
-                  onClick={() => {
-                    setL("orderMachine", "device");
-                  }}
-                ></input>
-                <label className="tab2_item" for="mch">
-                  機器
+              <div>
+                <div className="tabs2">
+                  <input
+                    id="mch"
+                    type="radio"
+                    name="tab2_item"
+                    onClick={() => {
+                      handleContentsClick("device");
+                    }}
+                  ></input>
+                  <label className="tab2_item" for="mch">
+                    機器
                 </label>
 
-                <input
-                  id="books"
-                  type="radio"
-                  name="tab2_item"
-                  onClick={() => {
-                    setL("orderBook", "book");
-                  }}
-                ></input>
-                <label className="tab2_item" for="books">
-                  書籍
+                  <input
+                    id="books"
+                    type="radio"
+                    name="tab2_item"
+                    onClick={() => {
+                      handleContentsClick("book");
+                    }}
+                  ></input>
+                  <label className="tab2_item" for="books">
+                    書籍
                 </label>
 
-                <input
-                  id="zenbu"
-                  type="radio"
-                  name="tab2_item"
-                  onClick={() => {
-                    setL("orderAll", "all");
-                  }}
-                ></input>
-                <label className="tab2_item" for="zenbu">
-                  全て
+                  <input
+                    id="zenbu"
+                    type="radio"
+                    name="tab2_item"
+                    onClick={() => {
+                      handleContentsClick("all");
+                    }}
+                  ></input>
+                  <label className="tab2_item" for="zenbu">
+                    全て
                 </label>
-                <label
-                  className="addLabel"
-                  onClick={() => setIsAddButton(isAddButton ? false : true)}
-                >
-                  追加
+                  <label
+                    className="addLabel"
+                    onClick={() => setIsAddButton(isAddButton ? false : true)}
+                  >
+                    追加
                 </label>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           <table className="table">
             <thead>
@@ -308,7 +318,7 @@ function Home() {
               isInventory={isInventory}
               createNewArray={createNewArray}
               labelName={labelName}
-              //updateItem={updateItem}
+            //updateItem={updateItem}
             />
           )}
         </div>
