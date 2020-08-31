@@ -1,5 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+}
+
+body {
+  height: 100%;
+  background-color: rgb(199, 243, 201);
 }
 
 .App-logo {
@@ -13,16 +23,137 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.menu {
+  text-align: right;
+  color: black;
 }
+
+input[name="box"] {
+  display: none;
+}
+
+/*在庫発注タブ*/
+.tab_item {
+  width: calc(100% / 2);
+  height: 50px;
+  border-bottom: 3px solid #5abd5f;
+  background-color: #d9d9d9;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#zaiko:checked ~ #zaiko_content,
+#hattyuu:checked ~ #hattyuu_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #28c528;
+  color: #fff;
+}
+
+
+/*タブ2*/
+/*タブのスタイル2*/
+.tab2_item {
+  width: 90px;
+  height: 30px;
+  border-bottom: 3px solid #5abd5f;
+  background-color: #d9d9d9;
+  line-height: 30px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab2_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab2_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab2_content2 {
+  display: none;
+  padding: 20px 0px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+/* #mch:checked ~ #mch_content,
+#books:checked ~ #books_content,
+#zenbu:checked ~ #zenbu_content {
+  display: block;
+} */
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab2_item {
+  background-color: #28c528;
+  color: #fff;
+}
+
+.table {
+  background-color: #a9ee7a;
+  border: 1;
+  border-color: #ffffff;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  /*border: solid 2px orange;/*表全体を線で囲う*/
+}
+
+.table th,
+table td {
+  padding: 10px 0;
+  text-align: center;
+  border: solid 2px rgb(255, 255, 255);
+}
+
+.table tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+/* .App-header{
+  display: flex;
+  float: left;
+  flex-direction: row;
+  font-size: calc(10px + 2vmin);
+  color: black;
+} */
 
 .App-link {
   color: #61dafb;
@@ -36,3 +167,23 @@
     transform: rotate(360deg);
   }
 }
+
+
+/*追加タブ*/
+.addLabel {
+  width: 90px;
+  height: 30px;
+  border-bottom: 3px solid #5abd5f;
+  background-color: #d9d9d9;
+  line-height: 30px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+

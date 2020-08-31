@@ -5,7 +5,7 @@ import firebase from './component/firebase';
 
 //screens
 import Home from './screens/Home.js';
-import Profile from './screens/Profile';
+//import Profile from './screens/Profile';
 import SignInOrUp from './screens/SignInOrUp.js';
 import SignUp from './screens/SignUp';
 
@@ -24,7 +24,7 @@ class App extends React.Component {
                     <Auth>
                         <Switch>
                             <Route exact path="/" component={Home} />
-                            <Route exact path="/profile" component={Profile} />
+                            {/* <Route exact path="/profile" component={Profile} /> */}
                             <Route exact path="/signup" component={SignUp} />
                             <Route render={() => <p>not found.</p>} />
                         </Switch>

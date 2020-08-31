@@ -140,7 +140,7 @@ const TableContent = (props) => {
           {props.item.name}
         </td>
         <td>{props.item.ID}</td>
-        <td>{props.item.name}</td>
+        <td>{props.item.type}</td>
         <td>{props.item.os}</td>
         <td>{props.item.color}</td>
         <td>{props.item.model}</td>
