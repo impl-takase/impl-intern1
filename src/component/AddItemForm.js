@@ -2,22 +2,22 @@
 import React, { useState } from 'react'
 import firebase from '../firebase'
 
-const db = firebase.firestore()
+const db = firebase.firestore();
 
 const AddItemForm = (props) => {
 
-    const [name, setName] = useState("")
-    const [ID, setID] = useState("")
-    const [type, setType] = useState('')
-    const [color, setColor] = useState('')
-    const [model, setModel] = useState('')
-    const [modelType, setModelType] = useState('')
-    const [os, setOs] = useState('')
-    const [arrivalDate, setArrivalDate] = useState('')
-    const [owner, setOwner] = useState('')
-    const [holder, setHolder] = useState('')
-    const [author, setAuthor] = useState('')
-    const [category, setCategory] = useState('')
+    const [name, setName] = useState("");
+    const [ID, setID] = useState("");
+    const [type, setType] = useState('');
+    const [color, setColor] = useState('');
+    const [model, setModel] = useState('');
+    const [modelType, setModelType] = useState('');
+    const [os, setOs] = useState('');
+    const [arrivalDate, setArrivalDate] = useState('');
+    const [owner, setOwner] = useState('');
+    const [holder, setHolder] = useState('');
+    const [author, setAuthor] = useState('');
+    const [category, setCategory] = useState('');
 
     const inventoryDevicelist = props.tabelContent === 'device' ?
         [
@@ -40,16 +40,16 @@ const AddItemForm = (props) => {
                 { labelName: "入荷日", inputType: "number", inputValue: arrivalDate, inputOnchange: setArrivalDate },
                 { labelName: "保管者", inputType: "text", inputValue: owner, inputOnchange: setOwner },
                 { labelName: "貸出人", inputType: "text", inputValue: holder, inputOnchange: setHolder }
-            ] : []
+            ] : [];
 
     //console.log(props.tabelContent)
 
     const handleChange = (e, inputOnchange) => {
-        console.log(e.currentTarget.value)
-        inputOnchange(e.currentTarget.value)
+        console.log(e.currentTarget.value);
+        inputOnchange(e.currentTarget.value);
     }
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         await db.collection('items').add(
             props.tabelContent === 'device' ?
                 {
@@ -80,31 +80,30 @@ const AddItemForm = (props) => {
                     isInventory: props.isInventory,
                     isDevice: false
                 }
-
         ).then(function (docRef) {
-            console.log("Document written with ID: ", docRef.id)
+            console.log("Document written with ID: ", docRef.id);
         }).catch(function (error) {
-            console.error("Error adding document: ", error)
+            console.error("Error adding document: ", error);
         })
         if (props.tabelContent === 'device') {
-            setName('')
-            setID('')
-            setType('')
-            setColor('')
-            setOs('')
-            setModelType('')
-            setModel('')
-            setArrivalDate('')
-            setHolder('')
-            setOwner('')
+            setName('');
+            setID('');
+            setType('');
+            setColor('');
+            setOs('');
+            setModelType('');
+            setModel('');
+            setArrivalDate('');
+            setHolder('');
+            setOwner('');
         } else {
-            setName('')
-            setID('')
-            setAuthor('')
-            setCategory('')
-            setArrivalDate('')
-            setHolder('')
-            setOwner('')
+            setName('');
+            setID('');
+            setAuthor('');
+            setCategory('');
+            setArrivalDate('');
+            setHolder('');
+            setOwner('');
         }
 
         //props.createNewArray(props.labelName)

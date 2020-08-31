@@ -100,46 +100,46 @@ function App() {
           id: doc.id,
           ...doc.data()
         }))
-        setItems(newItems)
+        setItems(newItems);
       })
   }, []);
 
   useEffect(() => {
     createNewArray(labelName)
-  }, [items])
+  }, [items]);
 
   const createNewArray = (a) => {
     let newArray = [];
     //console.log(a)
     switch (a) {
       case "stockMachine":
-        newArray = items.filter((item) => item.isInventory && item.isDevice)
+        newArray = items.filter((item) => item.isInventory && item.isDevice);
         break
       case "stockBook":
-        newArray = items.filter((item) => item.isInventory && !item.isDevice)
+        newArray = items.filter((item) => item.isInventory && !item.isDevice);
         break
       case "stockAll":
-        newArray = items.filter((item) => item.isInventory)
+        newArray = items.filter((item) => item.isInventory);
         break
       case "orderMachine":
-        newArray = items.filter((item) => !item.isInventory && item.isDevice)
+        newArray = items.filter((item) => !item.isInventory && item.isDevice);
         break
       case "orderBook":
-        newArray = items.filter((item) => !item.isInventory && !item.isDevice)
+        newArray = items.filter((item) => !item.isInventory && !item.isDevice);
         break
       case "orderAll":
-        newArray = items.filter((item) => !item.isInventory)
+        newArray = items.filter((item) => !item.isInventory);
         break
       default:
-    }
+    };
     setContext(newArray);
-  }
+  };
 
   const setL = (a, tableContent) => {
-    createNewArray(a)
-    setLabelName(a)
-    setLabel(eval(a))
-    setTabelContent(tableContent)
+    createNewArray(a);
+    setLabelName(a);
+    setLabel(eval(a));
+    setTabelContent(tableContent);
   };
 
   const handleClick = (isInventory) => {
@@ -151,22 +151,22 @@ function App() {
             : isInventory === true && tabelContent === "device" ? "stockMachine"
               : isInventory === true && tabelContent === "book" ? "stockBook"
                 : "stockAll"
-    setLabelName(a)
-    setLabel(eval(a))
-    createNewArray(a)
+    setLabelName(a);
+    setLabel(eval(a));
+    createNewArray(a);
   }
 
   return (
     <div>
       <Button
         task={() => {
-          handleClick(true)
+          handleClick(true);
         }}
         buttonName={"在庫"}
       />
       <Button
         task={() => {
-          handleClick(false)
+          handleClick(false);
         }}
         buttonName={"発注"}
       />
