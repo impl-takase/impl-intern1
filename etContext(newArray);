@@ -1,0 +1,83 @@
+[33mcommit f53d39e8888030e4c55268ce600e3130463ccb18[m[33m ([m[1;36mHEAD -> [m[1;32mjoin[m[33m, [m[1;31morigin/addButtons[m[33m, [m[1;32maddButtons[m[33m)[m
+Author: Kumakou <kumakou1999@ezweb.ne.jp>
+Date:   Mon Aug 31 08:07:26 2020 +0900
+
+    #9 fix bug
+
+[33mcommit 8e7383aa3e0ee05b386ba8918e9adcb92463317c[m
+Author: Kumakou <kumakou1999@ezweb.ne.jp>
+Date:   Fri Aug 28 18:01:36 2020 +0900
+
+    #9 fix add messeage
+
+[33mcommit efbfa25cf98a47bb114051dd220550606ae3e407[m
+Author: Kumakou <kumakou1999@ezweb.ne.jp>
+Date:   Fri Aug 28 17:07:30 2020 +0900
+
+    #9 cleac code
+
+[33mcommit 5587b1139dba31bada95433ddae4e12cd75abac5[m
+Author: Kumakou <kumakou1999@ezweb.ne.jp>
+Date:   Fri Aug 28 14:43:38 2020 +0900
+
+    #9 clean code
+
+[33mcommit 324de072ce107ad6704ce8263ed8915d35d82526[m
+Author: Kumakou <kumakou1999@ezweb.ne.jp>
+Date:   Fri Aug 28 10:46:01 2020 +0900
+
+    #9 add buttons
+
+[33mcommit 511aad5a34cb0b182aef16f75777840b9bee4575[m[33m ([m[1;31morigin/develop[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 8896978 648a8e2
+Author: impl-takase <68369938+impl-takase@users.noreply.github.com>
+Date:   Thu Aug 27 16:16:20 2020 +0900
+
+    Merge pull request #8 from impl-takase/table
+    
+    #6 add create table
+
+[33mcommit 648a8e2b4b3b9bd6e164c177ea67532f4d5aef42[m[33m ([m[1;31morigin/table[m[33m)[m
+Author: SuzukiAyumi555 <b1018158@fun.ac.jp>
+Date:   Thu Aug 27 16:06:38 2020 +0900
+
+    #10 add create page and bottun
+
+[33mcommit 39b8bf83af6788a3e49961f8b3b583db5fcd13c2[m
+Author: SuzukiAyumi555 <b1018158@fun.ac.jp>
+Date:   Thu Aug 27 14:15:32 2020 +0900
+
+    #6 add create table
+
+[33mcommit 8896978be7b030d18a32a4e5111810d77fbec634[m
+Merge: b9b2a40 5459219
+Author: impl-takase <68369938+impl-takase@users.noreply.github.com>
+Date:   Tue Aug 25 19:12:46 2020 +0900
+
+    Merge pull request #2 from impl-takase/firebase
+    
+    Firebase
+
+[33mcommit 5459219ef5625320edbcc525abbc8c1cded104b2[m
+Author: b1017113 <67138949+b1017113@users.noreply.github.com>
+Date:   Tue Aug 25 18:20:57 2020 +0900
+
+    #1 clean .env
+
+[33mcommit e33d36e6aa37831013bc12866f5564d98e6a8bb9[m
+Author: b1017113 <67138949+b1017113@users.noreply.github.com>
+Date:   Tue Aug 25 16:32:10 2020 +0900
+
+    #1 create firebase
+
+[33mcommit 51b019b93d2faaac4fd3091625ec1a386fcef219[m
+Author: b1017113 <67138949+b1017113@users.noreply.github.com>
+Date:   Tue Aug 25 16:20:00 2020 +0900
+
+    #1 create firebase
+
+[33mcommit b9b2a40363bb78421a9a64aad6ab53ba5e1f0008[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: impl-takase <68369938+impl-takase@users.noreply.github.com>
+Date:   Tue Aug 18 10:52:29 2020 +0900
+
+    Initial commit

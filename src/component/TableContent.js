@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-import firebase from '../firebase'
+import firebase from './firebase'
 
 const db = firebase.firestore()
 
